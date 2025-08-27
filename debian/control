@@ -1,0 +1,16 @@
+Source: rtw88
+Section: kernel
+Priority: optional
+Maintainer: lwfinger
+Build-Depends: debhelper (>= 9), dkms, dh-modaliases
+Standards-Version: 3.9.6
+Homepage: https://github.com/lwfinger/rtw88
+
+Package: rtw88-dkms
+Architecture: all
+Depends: ${misc:Depends}, dkms, linux-libc-dev, libc6-dev
+XB-Modaliases: ${modaliases}
+Description: dkms source for the Realtek rtw88 series of WiFi 5 drivers
+ .
+ This package provides the dkms source code for Realtek rtw88 series of WiFi 5 drivers.
+ Kernel source or headers are required to compile these modules.

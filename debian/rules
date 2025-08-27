@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+VERSION := $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
+
+%:
+	dh $@ --with dkms,modaliases
+
+override_dh_install:
+	dh_install dkms firmware Makefile rtw88.conf *.mk *.c *.h suspend_* *.md usr/src/rtw88-dkms-$(VERSION)/
+	find debian/rtw88-dkms/usr/src/rtw88-dkms-$(VERSION) -type f -exec chmod 644 {} \;
+
+override_dh_dkms:
+	dh_dkms -V $(VERSION)
+
+override_dh_auto_configure override_dh_auto_build override_dh_auto_test override_dh_auto_install override_dh_auto_c:

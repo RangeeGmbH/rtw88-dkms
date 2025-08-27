@@ -1,0 +1,5 @@
+rtw88 (0.6-0rangeeos1) rangeeos; urgency=medium
+
+  * Added debian/ folder
+
+ -- René Vögeli <rvoegeli@rangee.com>  Wed, 27 Aug 2025 11:44:50 +0200
